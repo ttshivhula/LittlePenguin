@@ -36,7 +36,7 @@ static ssize_t ft_write(struct file *f, const char __user *buf, size_t len, loff
 		ret = -EINVAL;
 		return (ret);
 	}
-	copy_from_user(kbuff, buf, LEN);
+	ret = copy_from_user(kbuff, buf, LEN);
 	if (strncmp(kbuff, USERNAME, LEN) == 0)
 		ret = LEN;
 	else
@@ -66,7 +66,7 @@ static struct file_operations devfops = {
 };
 
 struct miscdevice ttshivhu_device = {
-    .name = "fourtytwo",
+    .name = "fortytwo",
     .minor = MISC_DYNAMIC_MINOR,
     .fops = &devfops,
     .mode = 0777,

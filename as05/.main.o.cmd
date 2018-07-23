@@ -1,8 +1,8 @@
-cmd_/home/tshilidzi/Desktop/little-penguin-01/ex05/main.o := gcc -Wp,-MD,/home/tshilidzi/Desktop/little-penguin-01/ex05/.main.o.d  -nostdinc -isystem /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/include -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -DCONFIG_CC_STACKPROTECTOR -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -Werror-implicit-function-declaration -Wno-format-security -std=gnu89 -fno-PIE -DCC_HAVE_ASM_GOTO -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -funit-at-a-time -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_FXSAVEQ=1 -DCONFIG_AS_SSSE3=1 -DCONFIG_AS_CRC32=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1 -DCONFIG_AS_AVX512=1 -DCONFIG_AS_SHA1_NI=1 -DCONFIG_AS_SHA256_NI=1 -pipe -Wno-sign-compare -fno-asynchronous-unwind-tables -mindirect-branch=thunk-extern -mindirect-branch-register -DRETPOLINE -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -Wno-int-in-bool-context -O2 --param=allow-store-data-races=0 -Wframe-larger-than=2048 -fstack-protector-strong -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-var-tracking-assignments -pg -mfentry -DCC_USING_FENTRY -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fno-merge-all-constants -fmerge-constants -fno-stack-check -fconserve-stack -Werror=implicit-int -Werror=strict-prototypes -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -fmacro-prefix-map=./= -Wno-packed-not-aligned  -DMODULE  -DKBUILD_BASENAME='"main"' -DKBUILD_MODNAME='"main"' -c -o /home/tshilidzi/Desktop/little-penguin-01/ex05/.tmp_main.o /home/tshilidzi/Desktop/little-penguin-01/ex05/main.c
+cmd_/root/little/as05/main.o := gcc -Wp,-MD,/root/little/as05/.main.o.d  -nostdinc -isystem /usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include -I./arch/x86/include -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./arch/x86/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -DCONFIG_CC_STACKPROTECTOR -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -Werror-implicit-function-declaration -Wno-format-security -std=gnu89 -fno-PIE -DCC_HAVE_ASM_GOTO -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -funit-at-a-time -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_FXSAVEQ=1 -DCONFIG_AS_SSSE3=1 -DCONFIG_AS_CRC32=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1 -DCONFIG_AS_AVX512=1 -DCONFIG_AS_SHA1_NI=1 -DCONFIG_AS_SHA256_NI=1 -pipe -Wno-sign-compare -fno-asynchronous-unwind-tables -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -Wno-int-in-bool-context -O2 --param=allow-store-data-races=0 -Wframe-larger-than=2048 -fstack-protector-strong -Wno-unused-but-set-variable -Wno-unused-const-variable -fomit-frame-pointer -fno-var-tracking-assignments -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fno-merge-all-constants -fmerge-constants -fno-stack-check -fconserve-stack -Werror=implicit-int -Werror=strict-prototypes -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init  -DMODULE  -DKBUILD_BASENAME='"main"' -DKBUILD_MODNAME='"main"' -c -o /root/little/as05/main.o /root/little/as05/main.c
 
-source_/home/tshilidzi/Desktop/little-penguin-01/ex05/main.o := /home/tshilidzi/Desktop/little-penguin-01/ex05/main.c
+source_/root/little/as05/main.o := /root/little/as05/main.c
 
-deps_/home/tshilidzi/Desktop/little-penguin-01/ex05/main.o := \
+deps_/root/little/as05/main.o := \
   include/linux/kconfig.h \
     $(wildcard include/config/cpu/big/endian.h) \
     $(wildcard include/config/booger.h) \
@@ -56,7 +56,7 @@ deps_/home/tshilidzi/Desktop/little-penguin-01/ex05/main.o := \
     $(wildcard include/config/panic/timeout.h) \
     $(wildcard include/config/tracing.h) \
     $(wildcard include/config/ftrace/mcount/record.h) \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/include/stdarg.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/7.2.0/include/stdarg.h \
   include/linux/linkage.h \
   include/linux/stringify.h \
   include/linux/export.h \
@@ -139,10 +139,6 @@ deps_/home/tshilidzi/Desktop/little-penguin-01/ex05/main.o := \
     $(wildcard include/config/x86/l1/cache/shift.h) \
     $(wildcard include/config/x86/internode/cache/shift.h) \
     $(wildcard include/config/x86/vsmp.h) \
-  include/linux/dynamic_debug.h \
-    $(wildcard include/config/jump/label.h) \
-  include/linux/jump_label.h \
-  arch/x86/include/asm/jump_label.h \
   include/linux/build_bug.h \
   include/linux/device.h \
     $(wildcard include/config/debug/devres.h) \
@@ -191,12 +187,6 @@ deps_/home/tshilidzi/Desktop/little-penguin-01/ex05/main.o := \
   arch/x86/include/asm/spinlock_types.h \
     $(wildcard include/config/paravirt/spinlocks.h) \
   include/asm-generic/qspinlock_types.h \
-  include/asm-generic/qrwlock_types.h \
-  include/linux/lockdep.h \
-    $(wildcard include/config/lockdep.h) \
-    $(wildcard include/config/lock/stat.h) \
-    $(wildcard include/config/trace/irqflags.h) \
-  include/linux/rwlock_types.h \
   include/linux/atomic.h \
     $(wildcard include/config/generic/atomic64.h) \
   arch/x86/include/asm/atomic.h \
@@ -205,6 +195,12 @@ deps_/home/tshilidzi/Desktop/little-penguin-01/ex05/main.o := \
   arch/x86/include/asm/atomic64_64.h \
   include/asm-generic/atomic-instrumented.h \
   include/asm-generic/atomic-long.h \
+  include/asm-generic/qrwlock_types.h \
+  include/linux/lockdep.h \
+    $(wildcard include/config/lockdep.h) \
+    $(wildcard include/config/lock/stat.h) \
+    $(wildcard include/config/trace/irqflags.h) \
+  include/linux/rwlock_types.h \
   arch/x86/include/asm/processor.h \
     $(wildcard include/config/kvm.h) \
     $(wildcard include/config/cc/stackprotector.h) \
@@ -248,24 +244,6 @@ deps_/home/tshilidzi/Desktop/little-penguin-01/ex05/main.o := \
     $(wildcard include/config/randomize/memory.h) \
   arch/x86/include/uapi/asm/ptrace.h \
   arch/x86/include/uapi/asm/ptrace-abi.h \
-  arch/x86/include/asm/paravirt_types.h \
-    $(wildcard include/config/pgtable/levels.h) \
-    $(wildcard include/config/paravirt/debug.h) \
-  arch/x86/include/asm/desc_defs.h \
-  arch/x86/include/asm/kmap_types.h \
-    $(wildcard include/config/debug/highmem.h) \
-  include/asm-generic/kmap_types.h \
-  arch/x86/include/asm/pgtable_types.h \
-    $(wildcard include/config/mem/soft/dirty.h) \
-    $(wildcard include/config/proc/fs.h) \
-  arch/x86/include/asm/pgtable_64_types.h \
-  arch/x86/include/asm/sparsemem.h \
-    $(wildcard include/config/sparsemem.h) \
-  include/asm-generic/pgtable-nop4d.h \
-  arch/x86/include/asm/nospec-branch.h \
-    $(wildcard include/config/retpoline.h) \
-  arch/x86/include/asm/alternative-asm.h \
-  arch/x86/include/asm/msr-index.h \
   include/asm-generic/ptrace.h \
   arch/x86/include/uapi/asm/sigcontext.h \
   arch/x86/include/asm/page.h \
@@ -277,8 +255,16 @@ deps_/home/tshilidzi/Desktop/little-penguin-01/ex05/main.o := \
   include/asm-generic/memory_model.h \
     $(wildcard include/config/discontigmem.h) \
     $(wildcard include/config/sparsemem/vmemmap.h) \
+    $(wildcard include/config/sparsemem.h) \
   include/linux/pfn.h \
   include/asm-generic/getorder.h \
+  arch/x86/include/asm/pgtable_types.h \
+    $(wildcard include/config/mem/soft/dirty.h) \
+    $(wildcard include/config/pgtable/levels.h) \
+    $(wildcard include/config/proc/fs.h) \
+  arch/x86/include/asm/pgtable_64_types.h \
+  arch/x86/include/asm/sparsemem.h \
+  include/asm-generic/pgtable-nop4d.h \
   arch/x86/include/asm/msr.h \
     $(wildcard include/config/tracepoints.h) \
   arch/x86/include/asm/msr-index.h \
@@ -296,6 +282,9 @@ deps_/home/tshilidzi/Desktop/little-penguin-01/ex05/main.o := \
   arch/x86/include/asm/string_64.h \
     $(wildcard include/config/x86/mce.h) \
     $(wildcard include/config/arch/has/uaccess/flushcache.h) \
+  include/linux/jump_label.h \
+    $(wildcard include/config/jump/label.h) \
+  arch/x86/include/asm/jump_label.h \
   include/linux/bug.h \
     $(wildcard include/config/generic/bug.h) \
     $(wildcard include/config/bug/on/data/corruption.h) \
@@ -307,10 +296,9 @@ deps_/home/tshilidzi/Desktop/little-penguin-01/ex05/main.o := \
   arch/x86/include/uapi/asm/msr.h \
   include/linux/tracepoint-defs.h \
   include/linux/static_key.h \
-  arch/x86/include/asm/paravirt.h \
-    $(wildcard include/config/debug/entry.h) \
-  arch/x86/include/asm/frame.h \
-    $(wildcard include/config/frame/pointer.h) \
+  include/linux/errno.h \
+  include/uapi/linux/errno.h \
+  arch/x86/include/asm/desc_defs.h \
   arch/x86/include/asm/special_insns.h \
   arch/x86/include/asm/fpu/types.h \
   arch/x86/include/asm/unwind_hints.h \
@@ -326,6 +314,7 @@ deps_/home/tshilidzi/Desktop/little-penguin-01/ex05/main.o := \
     $(wildcard include/config/preempt/tracer.h) \
     $(wildcard include/config/trace/irqflags/support.h) \
   arch/x86/include/asm/irqflags.h \
+    $(wildcard include/config/debug/entry.h) \
   include/linux/osq_lock.h \
   include/linux/debug_locks.h \
     $(wildcard include/config/debug/locking/api/selftests.h) \
@@ -344,6 +333,7 @@ deps_/home/tshilidzi/Desktop/little-penguin-01/ex05/main.o := \
   include/linux/restart_block.h \
     $(wildcard include/config/compat.h) \
   arch/x86/include/asm/thread_info.h \
+    $(wildcard include/config/frame/pointer.h) \
     $(wildcard include/config/ia32/emulation.h) \
   arch/x86/include/asm/cpufeature.h \
     $(wildcard include/config/x86/feature/names.h) \
@@ -363,6 +353,7 @@ deps_/home/tshilidzi/Desktop/little-penguin-01/ex05/main.o := \
   include/linux/rcutree.h \
   include/linux/spinlock.h \
   arch/x86/include/asm/spinlock.h \
+  arch/x86/include/asm/paravirt.h \
   arch/x86/include/asm/qspinlock.h \
   include/asm-generic/qspinlock.h \
   arch/x86/include/asm/qrwlock.h \
@@ -446,8 +437,6 @@ deps_/home/tshilidzi/Desktop/little-penguin-01/ex05/main.o := \
     $(wildcard include/config/have/arch/nodedata/extension.h) \
     $(wildcard include/config/have/bootmem/info/node.h) \
   include/linux/notifier.h \
-  include/linux/errno.h \
-  include/uapi/linux/errno.h \
   include/linux/rwsem.h \
     $(wildcard include/config/rwsem/spin/on/owner.h) \
     $(wildcard include/config/rwsem/generic/spinlock.h) \
@@ -538,14 +527,6 @@ deps_/home/tshilidzi/Desktop/little-penguin-01/ex05/main.o := \
   include/asm-generic/pci_iomap.h \
     $(wildcard include/config/no/generic/pci/ioport/map.h) \
     $(wildcard include/config/generic/pci/iomap.h) \
-  include/xen/xen.h \
-    $(wildcard include/config/xen/pvh.h) \
-    $(wildcard include/config/xen/dom0.h) \
-  include/xen/interface/xen.h \
-  arch/x86/include/asm/xen/interface.h \
-  arch/x86/include/asm/xen/interface_64.h \
-  arch/x86/include/asm/pvclock-abi.h \
-  arch/x86/include/asm/xen/hypervisor.h \
   include/asm-generic/io.h \
     $(wildcard include/config/virt/to/bus.h) \
   include/linux/logic_pio.h \
@@ -836,6 +817,6 @@ deps_/home/tshilidzi/Desktop/little-penguin-01/ex05/main.o := \
   arch/x86/include/asm/extable.h \
   arch/x86/include/asm/uaccess_64.h \
 
-/home/tshilidzi/Desktop/little-penguin-01/ex05/main.o: $(deps_/home/tshilidzi/Desktop/little-penguin-01/ex05/main.o)
+/root/little/as05/main.o: $(deps_/root/little/as05/main.o)
 
-$(deps_/home/tshilidzi/Desktop/little-penguin-01/ex05/main.o):
+$(deps_/root/little/as05/main.o):

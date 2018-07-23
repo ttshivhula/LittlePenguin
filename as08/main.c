@@ -5,7 +5,11 @@
 #include <linux/fs.h>
 #include <linux/slab.h>
 
-MODULE_LICENSE("GPL");
+/*
+ * Don't have a license, LOL
+ */
+
+MODULE_LICENSE("GPL V2");
 MODULE_AUTHOR("Louis Solofrizzo <louis@ne02ptzero.me>");
 MODULE_DESCRIPTION("Useless module");
 
