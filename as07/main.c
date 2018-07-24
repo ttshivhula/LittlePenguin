@@ -15,7 +15,8 @@ int ret;
 
 MODULE_LICENSE("GPL");
 
-static ssize_t ft_read(struct file *f, char __user *buffer, size_t length, loff_t *offset)
+static ssize_t ft_read(struct file *f, char __user *buffer, size_t length,
+		       loff_t *offset)
 {
 	char *read_from = USERNAME + *offset;
 	size_t read_num = length < (LEN - *offset) ? length : (LEN - *offset);
@@ -32,7 +33,8 @@ static ssize_t ft_read(struct file *f, char __user *buffer, size_t length, loff_
 	return ret;
 }
 
-static ssize_t ft_write(struct file *f, const char __user *buf, size_t len, loff_t *offset)
+static ssize_t ft_write(struct file *f, const char __user *buf, size_t len,
+			loff_t *offset)
 {
 	if (len != LEN) {
 		ret = -EINVAL;
@@ -46,10 +48,12 @@ static ssize_t ft_write(struct file *f, const char __user *buf, size_t len, loff
 	return (ret);
 }
 
-static ssize_t foor(struct file *f, char __user *buffer, size_t length, loff_t *offset)
+static ssize_t foor(struct file *f, char __user *buffer, size_t length,
+		    loff_t *offset)
 {
 	char *read_from = foobuff + *offset;
-	size_t read_num = length < (PAGE_SIZE - *offset) ? length : (PAGE_SIZE - *offset);
+	size_t read_num = length < (PAGE_SIZE - *offset) ? length :
+		(PAGE_SIZE - *offset);
 
 	if (read_num == 0)
 		return (0);
@@ -67,7 +71,8 @@ static ssize_t foor(struct file *f, char __user *buffer, size_t length, loff_t *
  * TODO: Implement real write mode that supports, appending.
  */
 
-static ssize_t foow(struct file *f, const char __user *buf, size_t len, loff_t *offset)
+static ssize_t foow(struct file *f, const char __user *buf, size_t len,
+		    loff_t *offset)
 {
 	return (0);
 }
