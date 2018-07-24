@@ -41,6 +41,4 @@ void cleanup_module(void)
 	debugfs_remove_recursive(debugfs_root);
 }
 
-MODULE_LICENSE("Dual MIT/GPL");
-MODULE_AUTHOR("roblabla");
-MODULE_DESCRIPTION("An hello world module");
+MODULE_LICENSE("GPL");
