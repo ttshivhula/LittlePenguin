@@ -58,18 +58,16 @@ static struct file_operations idfops = {
 
 #include <linux/jiffies.h>
 
-// delay between two calls of my_timer_function in jiffies
-static const int delay_jiffies = 1 * HZ;
-
 static int __init entry_point(void)
 {
 	root = debugfs_create_dir("fortytwo", NULL);
 	if (!root || root == (void *)-ENODEV)
 		return (-1);
 	debugfs_create_file("id", 0666, root, NULL, &idfops);
-	debugfs_create_u8("jiffies", 0444, root, (u8 *)&delay_jiffies);
+	debugfs_create_ulong("jiffies", 0444, root,
+			   (long unsigned int *)&jiffies);
 	debugfs_create_file("foo", 0644, root, NULL, &idfops);
-	printk(KERN_INFO "Hello world! %d\n", delay_jiffies);
+	printk(KERN_INFO "Hello world!\n");
 	return 0;
 }
 
