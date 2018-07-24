@@ -3,20 +3,17 @@
 #include <linux/debugfs.h>
 #include <linux/kernel.h>
 #include <linux/fs.h>
-#include <linux/kernel.h>
-#include <linux/module.h>
 #include <linux/uaccess.h>
+#include <linux/jiffies.h>
 
 #define LEN 8
 #define USERNAME "ttshivhu"
 
 char kbuff[LEN];
-
-MODULE_LICENSE("GPL");
-
 struct dentry *root;
 int ret;
 
+MODULE_LICENSE("GPL");
 
 static ssize_t ft_read(struct file *f, char __user *buffer, size_t length, loff_t *offset)
 {
@@ -53,10 +50,13 @@ static struct file_operations idfops = {
   .owner = THIS_MODULE,
   .read = ft_read,
   .write = ft_write,
-  .llseek = no_llseek,
 };
 
-#include <linux/jiffies.h>
+static struct file_operations foofops = {
+  .owner = THIS_MODULE,
+  .read = ft_read,
+  .write = ft_write,
+};
 
 static int __init entry_point(void)
 {
