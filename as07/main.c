@@ -1,44 +1,80 @@
 #include <linux/module.h>
-#include <linux/kernel.h>
+#include <linux/init.h>
 #include <linux/debugfs.h>
-#include <linux/jiffies.h>
-#include "id_fops.c"
-#include "foo_fops.c"
+#include <linux/kernel.h>
+#include <linux/fs.h>
+#include <linux/kernel.h>
+#include <linux/module.h>
+#include <linux/uaccess.h>
 
-static struct dentry *debugfs_root;
+#define LEN 8
+#define USERNAME "ttshivhu"
 
-#if BITS_PER_LONG == 32
-#define debugfs_create_long(name, mode, parent, value) debugfs_create_u32(name, mode, parent, (u32*)(value))
-#else
-#define debugfs_create_long(name, mode, parent, value) debugfs_create_u64(name, mode, parent, (u64*)(value))
-#endif
-
-int init_module(void)
-{
-	int res = 0;
-
-	printk(KERN_INFO "Hello world!\n");
-	debugfs_root = debugfs_create_dir("fourty_two", NULL);
-	if (!debugfs_root) {
-		res = -ENOENT;
-		goto end;
-	}
-	mutex_init(&foo_mutex);
-	if (!debugfs_create_file("id", 0666, debugfs_root, NULL, &id_fops)
-		|| !debugfs_create_long("jiffies", 0444, debugfs_root, &jiffies)
-		|| !debugfs_create_file("foo", 0644, debugfs_root, NULL, &foo_fops)
-		) {
-		res = -ENOENT;
-		goto end;
-	}
-end:
-	return res;
-}
-
-void cleanup_module(void)
-{
-	printk(KERN_INFO "Cleaning up module.\n");
-	debugfs_remove_recursive(debugfs_root);
-}
+char kbuff[LEN];
 
 MODULE_LICENSE("GPL");
+
+struct dentry *root;
+int ret;
+
+
+static ssize_t ft_read(struct file *f, char __user *buffer, size_t length, loff_t *offset)
+{
+	char *read_from = USERNAME + *offset;
+	size_t read_num = length < (LEN - *offset) ? length : (LEN - *offset);
+
+	if (read_num == 0)
+		return (0);
+	ret = copy_to_user(buffer, read_from, read_num);
+	if (ret == read_num) {
+		ret = -EIO;
+	} else {
+		*offset = LEN - ret;
+		ret = read_num - ret;
+	}
+	return ret;
+}
+
+static ssize_t ft_write(struct file *f, const char __user *buf, size_t len, loff_t *offset)
+{
+	if (len != LEN) {
+		ret = -EINVAL;
+		return (ret);
+	}
+	ret = copy_from_user(kbuff, buf, LEN);
+	if (strncmp(kbuff, USERNAME, LEN) == 0)
+		ret = LEN;
+	else
+		ret = -EINVAL;
+	return (ret);
+}
+
+static struct file_operations idfops = {
+  .owner = THIS_MODULE,
+  .read = ft_read,
+  .write = ft_write,
+  .llseek = no_llseek,
+};
+
+#include <linux/jiffies.h>
+
+static int __init entry_point(void)
+{
+	root = debugfs_create_dir("fortytwo", NULL);
+	if (!root || root == (void *)-ENODEV)
+		return (-1);
+	debugfs_create_file("id", 0666, root, NULL, &idfops);
+	debugfs_create_ulong("jiffies", 0444, root,
+			   (long unsigned int *)&jiffies);
+	debugfs_create_file("foo", 0644, root, NULL, &idfops);
+	printk(KERN_INFO "Hello world!\n");
+	return 0;
+}
+
+static void __exit exit_point(void)
+{
+	debugfs_remove_recursive(root);
+	printk(KERN_INFO "Cleaning up module.\n");
+}
+module_init(entry_point);
+module_exit(exit_point);
