@@ -9,7 +9,7 @@
  * Don't have a license, LOL
  */
 
-MODULE_LICENSE("GPL V2");
+MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Louis Solofrizzo <louis@ne02ptzero.me>");
 MODULE_DESCRIPTION("Useless module");
 
@@ -46,7 +46,7 @@ static void __exit myfd_cleanup(void)
 ssize_t myfd_read(struct file *fp, char __user *user, size_t size,
 		loff_t *offs)
 {
-	size_t j, i;
+	size_t t, i;
 	char *tmp2;
 
 	/*
@@ -54,8 +54,8 @@ ssize_t myfd_read(struct file *fp, char __user *user, size_t size,
 	 */
 	tmp2 = kmalloc(sizeof(char) * PAGE_SIZE * 2, GFP_KERNEL);
 	tmp = tmp2;
-	for (j = strlen(str) - 1, i = 0; j >= 0; j--, i++)
-		tmp[i] = str[j];
+	for (t = strlen(str) - 1, i = 0; t >= 0; t--, i++)
+		tmp[i] = str[t];
 	tmp[i] = 0x0;
 	return simple_read_from_buffer(user, size, offs, tmp, i);
 }
