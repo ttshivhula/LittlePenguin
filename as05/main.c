@@ -69,7 +69,7 @@ struct miscdevice ttshivhu_device = {
     .name = "fortytwo",
     .minor = MISC_DYNAMIC_MINOR,
     .fops = &devfops,
-    .mode = 0777,
+    .mode = 0666,
 };
 
 static int __init entry_point(void)
