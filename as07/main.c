@@ -74,7 +74,17 @@ static ssize_t foor(struct file *f, char __user *buffer, size_t length,
 static ssize_t foow(struct file *f, const char __user *buf, size_t len,
 		    loff_t *offset)
 {
-	return (0);
+	int bytes_write = 0;
+
+	if (*offset >= PAGE_SIZE)
+		return -EINVAL;
+	while ((bytes_write < len) && (*offset < PAGE_SIZE))
+	{
+		get_user(foobuff[*offset], &buf[bytes_write]);
+		offset++;
+		bytes_write++;
+	}
+	return bytes_write;
 }
 
 static struct file_operations idfops = {
