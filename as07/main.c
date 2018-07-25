@@ -12,6 +12,7 @@
 char kbuff[LEN], foobuff[PAGE_SIZE];
 struct dentry *root;
 int ret;
+struct mutex flock;
 
 MODULE_LICENSE("GPL");
 
@@ -52,9 +53,10 @@ static ssize_t foor(struct file *f, char __user *buffer, size_t length,
 		    loff_t *offset)
 {
 	char *read_from = foobuff + *offset;
-	size_t read_num = length < (PAGE_SIZE - *offset) ? length :
-		(PAGE_SIZE - *offset);
+	size_t read_num = length < (PAGE_SIZE - *offset) ? length : (PAGE_SIZE - *offset);
 
+	//if (mutex_lock_interruptible(&flock))
+	//	return -EINTR;
 	if (read_num == 0)
 		return (0);
 	ret = copy_to_user(buffer, read_from, read_num);
@@ -64,26 +66,26 @@ static ssize_t foor(struct file *f, char __user *buffer, size_t length,
 		*offset = PAGE_SIZE - ret;
 		ret = read_num - ret;
 	}
+	//mutex_unlock(&flock);
 	return ret;
 }
-
-/*
- * TODO: Implement real write mode that supports, appending.
- */
 
 static ssize_t foow(struct file *f, const char __user *buf, size_t len,
 		    loff_t *offset)
 {
 	int bytes_write = 0;
 
+	//if (mutex_lock_interruptible(&flock))
+	//	return -EINTR;
 	if (*offset >= PAGE_SIZE)
 		return -EINVAL;
 	while ((bytes_write < len) && (*offset < PAGE_SIZE))
 	{
 		get_user(foobuff[*offset], &buf[bytes_write]);
-		offset++;
+		*offset = *offset + 1;
 		bytes_write++;
 	}
+	//mutex_unlock(&flock);
 	return bytes_write;
 }
 
@@ -111,11 +113,13 @@ static int __init entry_point(void)
 			debugfs_create_file("foo", 0644, root, NULL,
 				&foofops)))
 		return (-1);
+	//mutex_init(&flock);
 	return 0;
 }
 
 static void __exit exit_point(void)
 {
+	//mutex_destroy(&flock);
 	debugfs_remove_recursive(root);
 	printk(KERN_INFO "Cleaning up module.\n");
 }
