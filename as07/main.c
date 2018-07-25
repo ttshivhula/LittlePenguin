@@ -5,6 +5,7 @@
 #include <linux/fs.h>
 #include <linux/uaccess.h>
 #include <linux/jiffies.h>
+#include <linux/semaphore.h>
 
 #define LEN 8
 #define USERNAME "ttshivhu"
@@ -55,10 +56,14 @@ static ssize_t foor(struct file *f, char __user *buffer, size_t length,
 	char *read_from = foobuff + *offset;
 	size_t read_num = length < (PAGE_SIZE - *offset) ? length : (PAGE_SIZE - *offset);
 
-	//if (mutex_lock_interruptible(&flock))
-	//	return -EINTR;
+	ret = mutex_lock_interruptible(&flock);
+	if (ret)
+		return -1;
 	if (read_num == 0)
-		return (0);
+	{
+		ret = 0;
+		goto cleanup;
+	}
 	ret = copy_to_user(buffer, read_from, read_num);
 	if (ret == read_num) {
 		ret = -EIO;
@@ -66,7 +71,8 @@ static ssize_t foor(struct file *f, char __user *buffer, size_t length,
 		*offset = PAGE_SIZE - ret;
 		ret = read_num - ret;
 	}
-	//mutex_unlock(&flock);
+cleanup:
+	mutex_unlock(&flock);
 	return ret;
 }
 
@@ -74,19 +80,23 @@ static ssize_t foow(struct file *f, const char __user *buf, size_t len,
 		    loff_t *offset)
 {
 	int bytes_write = 0;
+	int append = 0;
 
-	//if (mutex_lock_interruptible(&flock))
-	//	return -EINTR;
-	if (*offset >= PAGE_SIZE)
-		return -EINVAL;
-	while ((bytes_write < len) && (*offset < PAGE_SIZE))
+	ret = mutex_lock_interruptible(&flock);
+	if (ret)
+		return -1;
+	if (f->f_flags & O_APPEND)
+		append = strlen(foobuff);
+	if (*offset + append >= PAGE_SIZE)
+		ret =  -EINVAL;
+	while ((bytes_write < len) && (*offset + append < PAGE_SIZE))
 	{
-		get_user(foobuff[*offset], &buf[bytes_write]);
+		get_user(foobuff[append + *offset], &buf[bytes_write]);
 		*offset = *offset + 1;
 		bytes_write++;
 	}
-	//mutex_unlock(&flock);
-	return bytes_write;
+	mutex_unlock(&flock);
+	return bytes_write ? bytes_write : ret;
 }
 
 static struct file_operations idfops = {
@@ -113,13 +123,12 @@ static int __init entry_point(void)
 			debugfs_create_file("foo", 0644, root, NULL,
 				&foofops)))
 		return (-1);
-	//mutex_init(&flock);
+	mutex_init(&flock);
 	return 0;
 }
 
 static void __exit exit_point(void)
 {
-	//mutex_destroy(&flock);
 	debugfs_remove_recursive(root);
 	printk(KERN_INFO "Cleaning up module.\n");
 }
