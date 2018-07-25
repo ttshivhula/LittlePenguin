@@ -16,7 +16,7 @@ int do_work(int *my_int, int retval)
 		/*
 		 * That was a long sleep, tell userspace about it
 		 */
-		pr_debug("We slept a long time!");
+		pr_info("We slept a long time!");
 	z = x * y;
 	return z;
 }
@@ -32,6 +32,5 @@ int my_init(void)
 void my_exit(void)
 {
 }
-
 module_init(my_init);
 module_exit(my_exit);
