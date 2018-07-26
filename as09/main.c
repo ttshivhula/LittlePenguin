@@ -21,7 +21,7 @@ static void mounts(const char *dir, struct seq_file *s)
     thedentry = path.dentry;
     list_for_each_entry(curdentry, &thedentry->d_subdirs, d_child) {
         if ( curdentry->d_flags & DCACHE_MOUNTED) {
-		seq_printf(s, "%s /%s\n", curdentry->d_name.name, dir);
+		seq_printf(s, "%s %s\n", curdentry->d_name.name, dir);
 	}
     }
 }
