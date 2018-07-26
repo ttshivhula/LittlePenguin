@@ -60,8 +60,7 @@ static ssize_t foor(struct file *f, char __user *buffer, size_t length,
 	ret = mutex_lock_interruptible(&flock);
 	if (ret)
 		return -1;
-	if (read_num == 0)
-	{
+	if (read_num == 0) {
 		ret = 0;
 		goto cleanup;
 	}
@@ -90,8 +89,7 @@ static ssize_t foow(struct file *f, const char __user *buf, size_t len,
 		append = strlen(foobuff);
 	if (*offset + append >= PAGE_SIZE)
 		ret =  -EINVAL;
-	while ((bytes_write < len) && (*offset + append < PAGE_SIZE))
-	{
+	while ((bytes_write < len) && (*offset + append < PAGE_SIZE)) {
 		get_user(foobuff[append + *offset], &buf[bytes_write]);
 		*offset = *offset + 1;
 		bytes_write++;
