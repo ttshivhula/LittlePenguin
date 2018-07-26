@@ -53,7 +53,7 @@ static int __init entry_point(void)
 
 static void __exit exit_point(void)
 {
-	remove_proc_entry("mymounts", proc_entry);
+	remove_proc_entry("mymounts", NULL);
 	printk(KERN_INFO "Cleaning up module.\n");
 }
 module_init(entry_point);
