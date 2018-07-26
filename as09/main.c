@@ -1,29 +1,34 @@
 #include <linux/module.h>
-#include <linux/init.h>
 #include <linux/kernel.h>
-#include <linux/namei.h>
-#include <linux/list.h>
-#include <linux/dcache.h>
-#include <linux/proc_fs.h>
 #include <linux/seq_file.h>
+#include <linux/mount.h>
+#include <linux/proc_fs.h>
+#include <linux/fs_struct.h>
+#include <linux/fs.h>
+#include <linux/namei.h>
 
 MODULE_LICENSE("GPL");
 
 static struct proc_dir_entry *proc_entry;
 
-static void mounts(const char *dir, struct seq_file *s)
+static int create_seq(struct vfsmount *root, void *data)
 {
-    struct path path;
-    struct dentry *thedentry;
-    struct dentry *curdentry;
+	//struct super_block *root_sb;
+	//struct dentry *root_root;
+	struct seq_file *s;
+	
+	s = (struct seq_file *)data;
+	return (0);
+}
 
-    kern_path(dir, LOOKUP_FOLLOW, &path);
-    thedentry = path.dentry;
-    list_for_each_entry(curdentry, &thedentry->d_subdirs, d_child) {
-        if ( curdentry->d_flags & DCACHE_MOUNTED) {
-		seq_printf(s, "%s %s\n", curdentry->d_name.name, dir);
-	}
-    }
+static void mounts(char *dir, struct seq_file *s)
+{
+	struct path path;
+	struct vfsmount *root;
+
+	kern_path(dir, LOOKUP_FOLLOW, &path);
+	root = collect_mounts(&path);
+	iterate_mounts(create_seq, (void *)s, root);
 }
 
 static int seq_mounts(struct seq_file *s, void *v)
@@ -38,9 +43,9 @@ static int opened(struct inode *i, struct file *f)
 }
 
 static struct file_operations seqfops = {
-  .owner = THIS_MODULE,
-  .open = opened,
-  .read = seq_read,
+	.owner = THIS_MODULE,
+	.open = opened,
+	.read = seq_read,
 };
 
 
