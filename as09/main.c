@@ -7,23 +7,31 @@
 #include <linux/fs.h>
 #include <linux/namei.h>
 #include <linux/kallsyms.h>
+#include <linux/vmalloc.h>
 
 MODULE_LICENSE("GPL");
 
 static struct proc_dir_entry *proc_entry;
 
-typedef int (*i_type)(int(*)(struct vfsmount*, void*), void*,
+typedef int (*idef)(int(*)(struct vfsmount*, void*), void*,
 				   struct vfsmount*);
-typedef struct vfsmount *(*c_type)(const struct path*);
+typedef struct vfsmount *(*cdef)(const struct path*);
+
+char *buff;
 
 static int create_seq(struct vfsmount *root, void *data)
 {
 	struct super_block *root_sb;
-	//struct dentry *root_root;
 	struct seq_file *s;
+	struct path path;
+	
 	root_sb = root->mnt_sb;
+	buff = vmalloc(PAGE_SIZE); 
+	path.mnt = root;
+	path.dentry = root->mnt_root;
 	s = (struct seq_file *)data;
-	seq_printf(s, "%s\n", root_sb->s_id);
+	seq_printf(s, "%s\t%s\n", root_sb->s_id,
+			d_path(&path, buff, PAGE_SIZE));
 	return (0);
 }
 
@@ -31,12 +39,14 @@ static void mounts(char *dir, struct seq_file *s)
 {
 	struct path path;
 	struct vfsmount *root;
-	i_type iterate_mounts = (void *)kallsyms_lookup_name("iterate_mounts");
-	c_type collect_mounts = (void *)kallsyms_lookup_name("collect_mounts");
-
+	cdef collectm;
+	idef iteratem; 
+	
+	iteratem = (void *)kallsyms_lookup_name("iterate_mounts");
+       	collectm= (void *)kallsyms_lookup_name("collect_mounts");
 	kern_path(dir, LOOKUP_FOLLOW, &path);
-	root = collect_mounts(&path);
-	iterate_mounts(create_seq, (void *)s, root);
+	root = collectm(&path);
+	iteratem(create_seq, (void *)s, root);
 }
 
 static int seq_mounts(struct seq_file *s, void *v)
