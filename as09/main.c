@@ -40,7 +40,7 @@ static void mounts(char *dir, struct seq_file *s)
 	cdef collectm;
 	idef iteratem;
 	iteratem = (void *)kallsyms_lookup_name("iterate_mounts");
-	collectm= (void *)kallsyms_lookup_name("collect_mounts");
+	collectm = (void *)kallsyms_lookup_name("collect_mounts");
 	kern_path(dir, 0, &path);
 	root = collectm(&path);
 	iteratem(create_seq, (void *)s, root);
