@@ -25,7 +25,6 @@ static int create_seq(struct vfsmount *root, void *data)
 	struct seq_file *s;
 	struct path path;
 	root_sb = root->mnt_sb;
-	buff = kmalloc(sizeof(char) * PAGE_SIZE, GFP_KERNEL);
 	path.mnt = root;
 	path.dentry = root->mnt_root;
 	s = (struct seq_file *)data;
@@ -68,11 +67,13 @@ static int __init entry_point(void)
 {
 	printk(KERN_INFO "Hello world!\n");
 	proc_entry = proc_create("mymounts", 0644, NULL, &seqfops);
+	buff = kmalloc(sizeof(char) * PAGE_SIZE, GFP_KERNEL);
 	return 0;
 }
 
 static void __exit exit_point(void)
 {
+	kfree(buff);
 	remove_proc_entry("mymounts", NULL);
 	printk(KERN_INFO "Cleaning up module.\n");
 }
