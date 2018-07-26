@@ -64,7 +64,6 @@ static struct file_operations seqfops = {
 	.read = seq_read,
 };
 
-
 static int __init entry_point(void)
 {
 	printk(KERN_INFO "Hello world!\n");
