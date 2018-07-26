@@ -47,14 +47,15 @@ static ssize_t ft_write(struct file *f, const char __user *buf, size_t len,
 		ret = LEN;
 	else
 		ret = -EINVAL;
-	return (ret);
+	return ret;
 }
 
 static ssize_t foor(struct file *f, char __user *buffer, size_t length,
 		    loff_t *offset)
 {
 	char *read_from = foobuff + *offset;
-	size_t read_num = length < (PAGE_SIZE - *offset) ? length : (PAGE_SIZE - *offset);
+	size_t read_num = length < (PAGE_SIZE - *offset) ?
+		length : (PAGE_SIZE - *offset);
 
 	ret = mutex_lock_interruptible(&flock);
 	if (ret)
@@ -116,13 +117,13 @@ static int __init entry_point(void)
 	printk(KERN_INFO "Hello world!\n");
 	root = debugfs_create_dir("fortytwo", NULL);
 	if (!root || root == (void *)-ENODEV)
-		return (-1);
+		return -1;
 	if (!(debugfs_create_file("id", 0666, root, NULL, &idfops) &&
 			debugfs_create_ulong("jiffies", 0444, root,
 			   (long unsigned int *)&jiffies) &&
 			debugfs_create_file("foo", 0644, root, NULL,
 				&foofops)))
-		return (-1);
+		return -1;
 	mutex_init(&flock);
 	return 0;
 }
