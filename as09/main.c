@@ -10,6 +10,11 @@ MODULE_LICENSE("GPL");
 
 static struct proc_dir_entry *proc_entry;
 
+static struct file_operations devfops = {
+  .owner = THIS_MODULE,
+  .read = ft_read,
+};
+
 static void mounts(const char *dir)
 {
     struct path path;
