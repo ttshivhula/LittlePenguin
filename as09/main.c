@@ -6,18 +6,24 @@
 #include <linux/fs_struct.h>
 #include <linux/fs.h>
 #include <linux/namei.h>
-#include <fs/pnode.h>
+#include <linux/kallsyms.h>
 
 MODULE_LICENSE("GPL");
 
 static struct proc_dir_entry *proc_entry;
 
+typedef int (*i_type)(int(*)(struct vfsmount*, void*), void*,
+				   struct vfsmount*);
+typedef struct vfsmount *(*c_type)(const struct path*);
+
 static int create_seq(struct vfsmount *root, void *data)
 {
-	//struct super_block *root_sb;
+	struct super_block *root_sb;
 	//struct dentry *root_root;
 	struct seq_file *s;
+	root_sb = root->mnt_sb;
 	s = (struct seq_file *)data;
+	seq_printf(s, "%s\n", root_sb->s_id);
 	return (0);
 }
 
@@ -25,6 +31,8 @@ static void mounts(char *dir, struct seq_file *s)
 {
 	struct path path;
 	struct vfsmount *root;
+	i_type iterate_mounts = (void *)kallsyms_lookup_name("iterate_mounts");
+	c_type collect_mounts = (void *)kallsyms_lookup_name("collect_mounts");
 
 	kern_path(dir, LOOKUP_FOLLOW, &path);
 	root = collect_mounts(&path);
