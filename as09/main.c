@@ -26,11 +26,11 @@ static int create_seq(struct vfsmount *root, void *data)
 	struct path path;
 	
 	root_sb = root->mnt_sb;
-	buff = malloc(sizeof(char) * PAGE_SIZE, GFP_KERNEL); 
+	buff = kmalloc(sizeof(char) * PAGE_SIZE, GFP_KERNEL); 
 	path.mnt = root;
 	path.dentry = root->mnt_root;
 	s = (struct seq_file *)data;
-	seq_printf(s, "%10s\t%s\n", root_sb->s_id,
+	seq_printf(s, "%-10s\t%s\n", root_sb->s_id,
 			d_path(&path, buff, PAGE_SIZE));
 	return (0);
 }
