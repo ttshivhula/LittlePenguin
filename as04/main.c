@@ -5,7 +5,8 @@
 
 MODULE_LICENSE("GPL");
 
-static int driverprobe(struct usb_interface *intf, const struct usb_device_id *id)
+static int driverprobe(struct usb_interface *intf,
+		const struct usb_device_id *id)
 {
 	printk(KERN_INFO "In the probe function\n");
 	return 0;
