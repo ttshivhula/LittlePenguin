@@ -30,7 +30,7 @@ static int create_seq(struct vfsmount *root, void *data)
 	path.mnt = root;
 	path.dentry = root->mnt_root;
 	s = (struct seq_file *)data;
-	seq_printf(s, "%s\t%s\n", root_sb->s_id,
+	seq_printf(s, "%10s\t%s\n", root_sb->s_id,
 			d_path(&path, buff, PAGE_SIZE));
 	return (0);
 }
@@ -44,7 +44,7 @@ static void mounts(char *dir, struct seq_file *s)
 	
 	iteratem = (void *)kallsyms_lookup_name("iterate_mounts");
        	collectm= (void *)kallsyms_lookup_name("collect_mounts");
-	kern_path(dir, LOOKUP_FOLLOW, &path);
+	kern_path(dir, 0, &path);
 	root = collectm(&path);
 	iteratem(create_seq, (void *)s, root);
 }
