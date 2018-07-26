@@ -24,9 +24,8 @@ static int create_seq(struct vfsmount *root, void *data)
 	struct super_block *root_sb;
 	struct seq_file *s;
 	struct path path;
-	
 	root_sb = root->mnt_sb;
-	buff = kmalloc(sizeof(char) * PAGE_SIZE, GFP_KERNEL); 
+	buff = kmalloc(sizeof(char) * PAGE_SIZE, GFP_KERNEL);
 	path.mnt = root;
 	path.dentry = root->mnt_root;
 	s = (struct seq_file *)data;
@@ -40,10 +39,9 @@ static void mounts(char *dir, struct seq_file *s)
 	struct path path;
 	struct vfsmount *root;
 	cdef collectm;
-	idef iteratem; 
-	
+	idef iteratem;
 	iteratem = (void *)kallsyms_lookup_name("iterate_mounts");
-       	collectm= (void *)kallsyms_lookup_name("collect_mounts");
+	collectm= (void *)kallsyms_lookup_name("collect_mounts");
 	kern_path(dir, 0, &path);
 	root = collectm(&path);
 	iteratem(create_seq, (void *)s, root);
