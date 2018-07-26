@@ -11,12 +11,36 @@ MODULE_LICENSE("GPL");
 
 static struct proc_dir_entry *proc_entry;
 
+static int iterate_mounts(int (*f)(struct vfsmount *, void *), void *arg,
+		   struct vfsmount *root)
+{
+	struct mount *mnt;
+	int res = f(root, arg);
+	if (res)
+		return res;
+	list_for_each_entry(mnt, &real_mount(root)->mnt_list, mnt_list) {
+		res = f(&mnt->mnt, arg);
+		if (res)
+			return res;
+	}
+	return 0;
+}
+
+struct vfsmount *collect_mounts(struct path *path)
+{
+	struct mount *tree;
+	down_write(&namespace_sem);
+	tree = copy_tree(real_mount(path->mnt), path->dentry,
+			 CL_COPY_ALL | CL_PRIVATE);
+	up_write(&namespace_sem);
+	return tree ? &tree->mnt : NULL;
+}
+
 static int create_seq(struct vfsmount *root, void *data)
 {
 	//struct super_block *root_sb;
 	//struct dentry *root_root;
 	struct seq_file *s;
-	
 	s = (struct seq_file *)data;
 	return (0);
 }
