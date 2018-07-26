@@ -7,7 +7,7 @@
 #include <linux/fs.h>
 #include <linux/namei.h>
 #include <linux/kallsyms.h>
-#include <linux/vmalloc.h>
+#include <linux/slab.h>
 
 MODULE_LICENSE("GPL");
 
@@ -26,7 +26,7 @@ static int create_seq(struct vfsmount *root, void *data)
 	struct path path;
 	
 	root_sb = root->mnt_sb;
-	buff = vmalloc(PAGE_SIZE); 
+	buff = malloc(sizeof(char) * PAGE_SIZE, GFP_KERNEL); 
 	path.mnt = root;
 	path.dentry = root->mnt_root;
 	s = (struct seq_file *)data;
