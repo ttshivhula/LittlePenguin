@@ -1,0 +1,105 @@
+Jul 26 16:00:27 +02:00 (none)  Mounting virtual file systems: /run OK
+Jul 26 16:00:27 +02:00 (none)  Bringing up the loopback interface... OK
+Jul 26 16:00:27 +02:00 (none)  Setting hostname to ttshivhu... OK
+Jul 26 16:00:27 +02:00 ttshivhu  Populating /dev with device nodes...  OK
+Jul 26 16:00:30 +02:00 ttshivhu  Activating all swap files/partitions... OK
+Jul 26 16:00:30 +02:00 ttshivhu  Mounting root file system in read-only mode...  OK
+Jul 26 16:00:30 +02:00 ttshivhu  Checking file systems... OK
+Jul 26 16:00:30 +02:00 ttshivhu  Remounting root file system in read-write mode... OK
+Jul 26 16:00:30 +02:00 ttshivhu  Mounting remaining file systems... OK
+Jul 26 16:00:30 +02:00 ttshivhu  Cleaning file systems: /tmp OK
+Jul 26 16:00:30 +02:00 ttshivhu  Retrying failed uevents, if any... OK
+Jul 26 16:00:31 +02:00 ttshivhu  Starting system log daemon... OK
+Jul 26 16:00:31 +02:00 ttshivhu  Starting kernel log daemon... OK
+Jul 26 16:00:31 +02:00 ttshivhu  Bringing up the enp0s3 interface... 
+Jul 26 16:00:31 +02:00 ttshivhu  Starting dhcpcd on the enp0s3 interface... OK
+Jul 26 16:00:31 +02:00 ttshivhu  Initializing kernel random number generator...FAIL
+Jul 26 16:00:31 +02:00 ttshivhu  Starting the D-Bus Messagebus Daemon... OK
+Jul 26 16:00:31 +02:00 ttshivhu  Starting PostgreSQL daemon...FAIL
+Jul 26 16:00:31 +02:00 ttshivhu  Starting fcron... OK
+Jul 26 16:00:31 +02:00 ttshivhu  Starting GPM console mouse service... OK
+--------
+Jul 27 08:40:40 +02:00 (none)  Mounting virtual file systems: /run OK
+Jul 27 08:40:41 +02:00 (none)  Bringing up the loopback interface... OK
+Jul 27 08:40:41 +02:00 (none)  Setting hostname to ttshivhu... OK
+Jul 27 08:40:41 +02:00 ttshivhu  Populating /dev with device nodes...  OK
+Jul 27 08:40:43 +02:00 ttshivhu  Activating all swap files/partitions... OK
+Jul 27 08:40:43 +02:00 ttshivhu  Mounting root file system in read-only mode...  OK
+Jul 27 08:40:43 +02:00 ttshivhu  Checking file systems... OK
+Jul 27 08:40:43 +02:00 ttshivhu  Remounting root file system in read-write mode... OK
+Jul 27 08:40:43 +02:00 ttshivhu  Mounting remaining file systems... OK
+Jul 27 08:40:43 +02:00 ttshivhu  Cleaning file systems: /tmp OK
+Jul 27 08:40:43 +02:00 ttshivhu  Retrying failed uevents, if any... OK
+Jul 27 08:40:44 +02:00 ttshivhu  Starting system log daemon... OK
+Jul 27 08:40:44 +02:00 ttshivhu  Starting kernel log daemon... OK
+Jul 27 08:40:44 +02:00 ttshivhu  Bringing up the enp0s3 interface... 
+Jul 27 08:40:44 +02:00 ttshivhu  Starting dhcpcd on the enp0s3 interface... OK
+Jul 27 08:40:44 +02:00 ttshivhu  Initializing kernel random number generator...FAIL
+Jul 27 08:40:44 +02:00 ttshivhu  Starting the D-Bus Messagebus Daemon... OK
+Jul 27 08:40:44 +02:00 ttshivhu  Starting PostgreSQL daemon...FAIL
+Jul 27 08:40:45 +02:00 ttshivhu  Starting fcron... OK
+Jul 27 08:40:45 +02:00 ttshivhu  Starting GPM console mouse service... OK
+--------
+Jul 27 09:42:50 +02:00 (none)  Mounting virtual file systems: /run OK
+Jul 27 09:42:50 +02:00 (none)  Bringing up the loopback interface... OK
+Jul 27 09:42:50 +02:00 (none)  Setting hostname to ttshivhu... OK
+Jul 27 09:42:50 +02:00 ttshivhu  Populating /dev with device nodes...  OK
+Jul 27 09:42:53 +02:00 ttshivhu  Activating all swap files/partitions... OK
+Jul 27 09:42:53 +02:00 ttshivhu  Mounting root file system in read-only mode...  OK
+Jul 27 09:42:53 +02:00 ttshivhu  Checking file systems... OK
+Jul 27 09:42:53 +02:00 ttshivhu  Remounting root file system in read-write mode... OK
+Jul 27 09:42:53 +02:00 ttshivhu  Mounting remaining file systems... OK
+Jul 27 09:42:53 +02:00 ttshivhu  Cleaning file systems: /tmp OK
+Jul 27 09:42:53 +02:00 ttshivhu  Retrying failed uevents, if any... OK
+Jul 27 09:42:54 +02:00 ttshivhu  Starting system log daemon... OK
+Jul 27 09:42:54 +02:00 ttshivhu  Starting kernel log daemon... OK
+Jul 27 09:42:54 +02:00 ttshivhu  Bringing up the enp0s3 interface... 
+Jul 27 09:42:54 +02:00 ttshivhu  Starting dhcpcd on the enp0s3 interface... OK
+Jul 27 09:42:54 +02:00 ttshivhu  Initializing kernel random number generator...FAIL
+Jul 27 09:42:54 +02:00 ttshivhu  Starting the D-Bus Messagebus Daemon... OK
+Jul 27 09:42:55 +02:00 ttshivhu  Starting PostgreSQL daemon...FAIL
+Jul 27 09:42:55 +02:00 ttshivhu  Starting fcron... OK
+Jul 27 09:42:56 +02:00 ttshivhu  Starting GPM console mouse service... OK
+--------
+Jul 27 10:15:30 +02:00 (none)  Mounting virtual file systems: /run OK
+Jul 27 10:15:30 +02:00 (none)  Bringing up the loopback interface... OK
+Jul 27 10:15:30 +02:00 (none)  Setting hostname to ttshivhu... OK
+Jul 27 10:15:30 +02:00 ttshivhu  Populating /dev with device nodes...  OK
+Jul 27 10:15:33 +02:00 ttshivhu  Activating all swap files/partitions... OK
+Jul 27 10:15:33 +02:00 ttshivhu  Mounting root file system in read-only mode...  OK
+Jul 27 10:15:33 +02:00 ttshivhu  Checking file systems... OK
+Jul 27 10:15:33 +02:00 ttshivhu  Remounting root file system in read-write mode... OK
+Jul 27 10:15:33 +02:00 ttshivhu  Mounting remaining file systems... OK
+Jul 27 10:15:33 +02:00 ttshivhu  Cleaning file systems: /tmp OK
+Jul 27 10:15:33 +02:00 ttshivhu  Retrying failed uevents, if any... OK
+Jul 27 10:15:34 +02:00 ttshivhu  Starting system log daemon... OK
+Jul 27 10:15:34 +02:00 ttshivhu  Starting kernel log daemon... OK
+Jul 27 10:15:34 +02:00 ttshivhu  Bringing up the enp0s3 interface... 
+Jul 27 10:15:34 +02:00 ttshivhu  Starting dhcpcd on the enp0s3 interface... OK
+Jul 27 10:15:34 +02:00 ttshivhu  Initializing kernel random number generator...FAIL
+Jul 27 10:15:34 +02:00 ttshivhu  Starting the D-Bus Messagebus Daemon... OK
+Jul 27 10:15:34 +02:00 ttshivhu  Starting PostgreSQL daemon...FAIL
+Jul 27 10:15:35 +02:00 ttshivhu  Starting fcron... OK
+Jul 27 10:15:35 +02:00 ttshivhu  Starting GPM console mouse service... OK
+--------
+Jul 27 10:21:51 +02:00 (none)  Mounting virtual file systems: /run OK
+Jul 27 10:21:51 +02:00 (none)  Bringing up the loopback interface... OK
+Jul 27 10:21:51 +02:00 (none)  Setting hostname to ttshivhu... OK
+Jul 27 10:21:51 +02:00 ttshivhu  Populating /dev with device nodes...  OK
+Jul 27 10:21:54 +02:00 ttshivhu  Activating all swap files/partitions... OK
+Jul 27 10:21:54 +02:00 ttshivhu  Mounting root file system in read-only mode...  OK
+Jul 27 10:21:54 +02:00 ttshivhu  Checking file systems... OK
+Jul 27 10:21:54 +02:00 ttshivhu  Remounting root file system in read-write mode... OK
+Jul 27 10:21:54 +02:00 ttshivhu  Mounting remaining file systems... OK
+Jul 27 10:21:54 +02:00 ttshivhu  Cleaning file systems: /tmp OK
+Jul 27 10:21:54 +02:00 ttshivhu  Retrying failed uevents, if any... OK
+Jul 27 10:21:55 +02:00 ttshivhu  Starting system log daemon... OK
+Jul 27 10:21:55 +02:00 ttshivhu  Starting kernel log daemon... OK
+Jul 27 10:21:55 +02:00 ttshivhu  Bringing up the enp0s3 interface... 
+Jul 27 10:21:55 +02:00 ttshivhu  Starting dhcpcd on the enp0s3 interface... OK
+Jul 27 10:21:55 +02:00 ttshivhu  Initializing kernel random number generator...FAIL
+Jul 27 10:21:55 +02:00 ttshivhu  Starting the D-Bus Messagebus Daemon... OK
+Jul 27 10:21:55 +02:00 ttshivhu  Starting PostgreSQL daemon...FAIL
+Jul 27 10:21:56 +02:00 ttshivhu  Starting fcron... OK
+Jul 27 10:21:56 +02:00 ttshivhu  Starting GPM console mouse service... OK
+--------
