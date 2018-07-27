@@ -3,6 +3,9 @@ From: Tshilidzi Tshivhula <pboyfunclub@gmail.com>
 Date: Fri, 27 Jul 2018 10:03:36 +0200
 Subject: [PATCH] Added -thor_kernel to version string
 
+Added -thor_kernel to version string
+
+Signed-off-by: Tshilidzi Tshivhula <pboyfunclub@gmail.com>
 ---
  Makefile | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
