@@ -1,0 +1,25 @@
+From a60c5cb0ee3c21536bb7011cc696de2107197ff2 Mon Sep 17 00:00:00 2001
+From: Tshilidzi Tshivhula <pboyfunclub@gmail.com>
+Date: Fri, 27 Jul 2018 10:03:36 +0200
+Subject: [PATCH] Added -thor_kernel to version string
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 67d9d20f8564..df1301f1e0ab 100644
+--- a/Makefile
++++ b/Makefile
+@@ -2,7 +2,7 @@
+ VERSION = 4
+ PATCHLEVEL = 18
+ SUBLEVEL = 0
+-EXTRAVERSION = -rc6
++EXTRAVERSION = -rc6-thor_kernel
+ NAME = Merciless Moray
+ 
+ # *DOCUMENTATION*
+-- 
+2.14.1
+
