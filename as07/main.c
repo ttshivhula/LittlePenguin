@@ -16,6 +16,8 @@ int ret;
 struct mutex flock;
 
 MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Tshilidzi Tshivhula <pboyfunclub@gmail.com>");
+MODULE_DESCRIPTION("debugfs module");
 
 static ssize_t ft_read(struct file *f, char __user *buffer, size_t length,
 		       loff_t *offset)

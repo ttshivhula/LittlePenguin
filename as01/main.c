@@ -3,6 +3,8 @@
 #include <linux/kernel.h>
 
 MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Tshilidzi Tshivhula <pboyfunclub@gmail.com>");
+MODULE_DESCRIPTION("hello world module");
 
 static int __init entry_point(void)
 {

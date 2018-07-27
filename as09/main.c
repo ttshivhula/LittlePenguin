@@ -10,6 +10,8 @@
 #include <linux/slab.h>
 
 MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Tshilidzi Tshivhula <pboyfunclub@gmail.com>");
+MODULE_DESCRIPTION("mount points module");
 
 static struct proc_dir_entry *proc_entry;
 

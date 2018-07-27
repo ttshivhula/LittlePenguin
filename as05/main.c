@@ -12,6 +12,8 @@ char kbuff[LEN];
 int ret;
 
 MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Tshilidzi Tshivhula <pboyfunclub@gmail.com>");
+MODULE_DESCRIPTION("username module");
 
 static ssize_t ft_read(struct file *f, char __user *buffer, size_t length,
 		       loff_t *offset)

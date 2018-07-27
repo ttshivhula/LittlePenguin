@@ -4,6 +4,8 @@
 #include <linux/hid.h>
 
 MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Tshilidzi Tshivhula <pboyfunclub@gmail.com>");
+MODULE_DESCRIPTION("usb module");
 
 static int driverprobe(struct usb_interface *intf,
 		const struct usb_device_id *id)
